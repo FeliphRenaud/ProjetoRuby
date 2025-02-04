@@ -1,0 +1,13 @@
+<h1>Posts#index</h1>
+<h1>Destinos Turísticos</h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <h2><%= post.titulo %></h2>
+    <p><%= post.subtitulo %></p>
+    <img src="<%= post.imagem %>" alt="<%= post.titulo %>">
+    <p><%= post.descricao.truncate(150) %></p>
+    <p>Palavra-chave: <%= post.palavra_chave %></p>
+    <%= link_to "Ver mais", post_path(post) %>
+  </div>
+<% end %>

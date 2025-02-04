@@ -1,0 +1,18 @@
+current directory: /home/feliph/Área de trabalho/WorkSpace/Repositorios/Ruby/ProjetoRuby/turismo_ms/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+/home/feliph/.rbenv/versions/3.2.3/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/feliph/Área de trabalho/WorkSpace/Repositorios/Ruby/ProjetoRuby/turismo_ms/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20250131-68395-tf0g9e sitelibdir\=./.gem.20250131-68395-tf0g9e clean
+
+current directory: /home/feliph/Área de trabalho/WorkSpace/Repositorios/Ruby/ProjetoRuby/turismo_ms/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20250131-68395-tf0g9e sitelibdir\=./.gem.20250131-68395-tf0g9e
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/feliph/Área de trabalho/WorkSpace/Repositorios/Ruby/ProjetoRuby/turismo_ms/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20250131-68395-tf0g9e sitelibdir\=./.gem.20250131-68395-tf0g9e install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20250131-68395-tf0g9e/skiptrace/internal
+
+current directory: /home/feliph/Área de trabalho/WorkSpace/Repositorios/Ruby/ProjetoRuby/turismo_ms/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20250131-68395-tf0g9e sitelibdir\=./.gem.20250131-68395-tf0g9e clean

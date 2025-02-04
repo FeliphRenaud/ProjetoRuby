@@ -1,0 +1,50 @@
+
+<h1>Bem-vindo ao Turismo MS!</h1>
+<p>O site está funcionando, porra! 🚀</p>
+
+<h2>e os guri pai</h2>
+<h3>VAMO GREMIO</h3>
+
+
+<h1>Bem-vindo à Home</h1>
+
+<div>
+  <h1>Destinos Turísticos</h1>
+
+  <% if @posts.any? %>
+    <div id="posts">
+      <% @posts.each do |post| %>
+        <div class="post" style="border: 1px solid #ccc; margin-bottom: 20px; padding: 10px;">
+          <!-- Exibe a imagem -->
+          <% if post.imagem.present? %>
+            <img src="<%= post.imagem %>" alt="<%= post.titulo %>" style="max-width: 300px;">
+          <% end %>
+          
+          <!-- Exibe o título e subtítulo -->
+          <h2><%= post.titulo %></h2>
+          <h3><%= post.subtitulo %></h3>
+          
+          <!-- Exibe um resumo da descrição -->
+          <p><%= truncate(post.descricao, length: 150) %></p>
+          
+          <!-- Link para ver os detalhes do post -->
+          <%= link_to "Ver detalhes", post_path(post) %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Nenhum destino turístico cadastrado.</p>
+  <% end %>
+</div>
+
+
+
+  <!-- Link de Logout que envia uma requisição DELETE -->
+<% if current_cliente %>
+  <p>Você está logado como <%= current_cliente.nome %>.</p>
+  <%= link_to "Sair", logout_path, method: :delete, data: { confirm: "Deseja realmente sair?" } %>
+
+<% else %>
+  <p>Você não está logado.</p>
+  <%= link_to "Entrar", login_path %>
+<% end %>
