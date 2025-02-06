@@ -1,13 +1,32 @@
-<h1>Posts#index</h1>
-<h1>Destinos Turísticos</h1>
+<h1> Destinos </h1>
 
-<% @posts.each do |post| %>
-  <div class="post">
-    <h2><%= post.titulo %></h2>
-    <p><%= post.subtitulo %></p>
-    <img src="<%= post.imagem %>" alt="<%= post.titulo %>">
-    <p><%= post.descricao.truncate(150) %></p>
-    <p>Palavra-chave: <%= post.palavra_chave %></p>
-    <%= link_to "Ver mais", post_path(post) %>
+<!-- Link para criar um novo post (apenas para admin) -->
+<% if current_cliente && current_cliente.admin? %>
+  <%= link_to "Proximo destino", new_post_path, class: "btn btn-primary" %>
+<% end %>
+
+<hr>
+
+<% if @posts.any? %>
+  <div id="posts">
+    <% @posts.each do |post| %>
+      <div class="post" style="border: 1px solid #ccc; margin-bottom: 20px; padding: 10px;">
+        <% if post.imagem.present? %>
+          <img src="<%= post.imagem %>" alt="<%= post.titulo %>" style="max-width: 300px;">
+        <% end %>
+        <h2><%= post.titulo %></h2>
+        <h3><%= post.subtitulo %></h3>
+        <p><%= truncate(post.descricao, length: 150) %></p>
+        
+        <!-- Links de ações: Ver, Editar e Excluir -->
+        <%= link_to "Ver detalhes", post_path(post), class: "btn btn-info" %>
+        <% if current_cliente && current_cliente.admin? %>
+          <%= link_to "Editar", edit_post_path(post), class: "btn btn-warning" %>
+          <%= link_to "Excluir", post_path(post), method: :delete, data: { confirm: "Tem certeza que deseja excluir este post?" }, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+<% else %>
+  <p>Nenhum destino turístico cadastrado.</p>
 <% end %>

@@ -1,25 +1,36 @@
 class PostsController < ApplicationController
-  #invoca o metodo require_admin antes de executar o CRUD
-  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
-  private
+  # invoca o metodo require_admin antes de executar o CRUD
+  before_action :require_admin, only: %i[new create edit update destroy]
+
+  # private
 
   def require_admin
     # Se o cliente nao estiver logado ou nao for um admin , acesso bloqueado.
-    unless current_cliente && current_cliente.admin?
-      render json: { error: "Acesso negado. Somente administradores podem realizar essa ação." }, status: :unauthorized
+    return if current_cliente && current_cliente.admin?
+
+    render json: { error: 'Acesso negado. Somente administradores podem realizar essa ação.' }, status: :unauthorized
+  end
+
+  def index
+    if params[:q].present?
+      # Filtra os posts que contenham a palavra-chave no título, subtítulo, descrição ou no campo palavra_chave.
+      query = "%#{params[:q]}%"
+      @posts = Post.where('titulo ILIKE ? OR subtitulo ILIKE ? OR descricao ILIKE ? OR palavra_chave ILIKE ?', query,
+                          query, query, query).order(created_at: :desc)
+    else
+      @posts = Post.all.order(created_at: :desc)
     end
   end
 
-
-  def index
-    @posts = Post.all
-    render json: @posts
-  end
-
- 
   def show
-    @post = Post.find(params[:id])
-    render json: @post
+    @post = Post.find_by(id: params[:id])
+    Rails.logger.debug "Buscando Post com id: #{params[:id]} - Resultado: #{@post.inspect}"
+
+    return unless @post.nil?
+
+    redirect_to posts_path, alert: 'Post não encontrado.' and return
+
+    # Se @post existir, a view show.html.erb será renderizada normalmente
   end
 
   def new
@@ -29,9 +40,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      render json: { message: "Post criado com sucesso!", post: @post }, status: :ok
+      redirect_to posts_path, notice: 'Post criado com sucesso!'
     else
-      render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
+      render :new
     end
   end
 
@@ -42,16 +54,17 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      render json: { message: "Post atualizado com sucesso!", post: @post }, status: :ok
+      redirect_to posts_path, notice: 'Post atualizado com sucesso!'
     else
-      render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
+      render :edit
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    render json: { message: "Post excluído com sucesso!" }, status: :ok
+    redirect_to posts_path, notice: 'Post excluído com sucesso!'
   end
 
   private
