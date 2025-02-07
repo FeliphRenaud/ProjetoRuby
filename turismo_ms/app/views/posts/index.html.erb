@@ -1,6 +1,6 @@
 <h1> Destinos </h1>
 
-<!-- Link para criar um novo post (apenas para admin) -->
+
 <% if current_cliente && current_cliente.admin? %>
   <%= link_to "Proximo destino", new_post_path, class: "btn btn-primary" %>
 <% end %>

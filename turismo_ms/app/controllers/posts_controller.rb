@@ -13,12 +13,16 @@ class PostsController < ApplicationController
 
   def index
     if params[:q].present?
-      # Filtra os posts que contenham a palavra-chave no título, subtítulo, descrição ou no campo palavra_chave.
       query = "%#{params[:q]}%"
       @posts = Post.where('titulo ILIKE ? OR subtitulo ILIKE ? OR descricao ILIKE ? OR palavra_chave ILIKE ?', query,
-                          query, query, query).order(created_at: :desc)
+                          query, query, query)
+                   .order(created_at: :desc)
+                   .page(params[:page])
+                   .per(16)
     else
       @posts = Post.all.order(created_at: :desc)
+                   .page(params[:page])
+                   .per(16)
     end
   end
 

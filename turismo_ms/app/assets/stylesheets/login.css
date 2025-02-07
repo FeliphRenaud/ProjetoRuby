@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* container de toda a pagina */
+
+.login-container {
+    background: url('https://roteirobonitoms.com.br/wp-content/uploads/2022/06/boca-da-onca3-2048x1365.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+
+}
+
+/* login */
+.login-box {
+    position: relative;
+    background: rgba(255, 255, 255, 0.55);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+/* efeito na borda da caixa */
+.login-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    animation: drawBorder 1s forwards;
+}
+
+/* Keyframes para a efeito da borda */
+@keyframes drawBorder {
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    50% {
+        width: 100%;
+        height: 0;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* delay para a animacao ter tempo de terminar  */
+.login-content {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: 1s;
+
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/*  estilo para o form */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+}

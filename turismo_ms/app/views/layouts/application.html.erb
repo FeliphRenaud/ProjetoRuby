@@ -6,20 +6,67 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="shortcut icon" type="image/png" href="happy_tucano.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :extra_stylesheets %>
     <%= javascript_importmap_tags %>
 
-
-  
-
   </head>
+ 
+  <header class="main-header">
+  <div class="header-container">
+    
+    <div class="header-left">
+      <h1 class="site-title">Ms Turismo</h1>
+    </div>
+
+    
+    <div class="header-center">
+      <%= form_with url: posts_path, method: :get, local: true, html: { class: "header-search-form" } do |form| %>
+        <%= form.text_field :q, placeholder: "Pesquisar palavras-chave...", class: "header-search-input" %>
+        <%= form.submit "Buscar", class: "header-search-button" %>
+      <% end %>
+    </div>
+
+    
+    <div class="header-right">
+      <% if current_cliente %>
+        <p class="header-user">Olá, <%= current_cliente.nome %></p>
+        <%= link_to "Editar Perfil", edit_cliente_path(current_cliente), class: "header-link" %>
+        <%= link_to "Logout", logout_path, method: :delete, class: "header-link" %>
+      <% else %>
+        <%= link_to "Login", login_path, class: "header-user" %>
+      <% end %>
+    </div>
+  </div>
+</header>
+
 
   <body>
-    <% if flash[:notice] %>
-    <div class="alert alert-success"><%= flash[:notice] %></div>
-      <% elsif flash[:alert] %>
-    <div class="alert alert-danger"><%= flash[:alert] %></div>
-      <% end %>
+  
     <%= yield %>
   </body>
+
+  <footer>
+    <div class="footer-container">
+        
+        <div class="footer-left">
+          <%= link_to image_tag("Logotipo-.png", alt: "Parceiro", class: "footer-logo"), "https://bonitour.com.br/", target: "_blank" %>
+        </div>
+        
+        <div class="footer-center">
+          <p>&copy; 2025 MsTurismo - Todos os direitos reservados.</p>
+        </div>
+        
+        <div class="footer-right">
+          <%= link_to image_tag("instalogo.com.png", alt: "Instagram", class: "footer-icon"), "https://www.instagram.com/feliphrenaud/", target: "_blank" %>
+          <%= link_to image_tag("githublogo.com.png", alt: "GitHub", class: "footer-icon"), "https://github.com/feliphrenaud", target: "_blank" %>
+          <%= link_to image_tag("linkedinlogo.com.png", alt: "LinkedIn", class: "footer-icon"), "https://www.linkedin.com/in/feliph-renaud-5297b0240/", target: "_blank" %>
+        </div>
+      </div>
+  </footer>
 </html>
