@@ -14,117 +14,21 @@ body {
 body {
     display: flex;
     flex-direction: column;
-}
-
-/* Header Geral */
-.main-header {
-    width: 100%;
-    height: 150px;
-    background: url('arara_header.jpg') no-repeat center center;
-    background-size: cover;
-}
-
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 100%;
-    padding: 0 20px;
-}
-
-
-.header-left {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.header-left .site-title {
-    font-family: "Fredoka", sans-serif;
-    font-size: 1.5em;
-    color: #fff;
-    opacity: 75%;
-}
-
-
-.header-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-
-.header-search-form {
-    display: flex;
-    background: rgba(255, 255, 255, 0.55);
-    padding: 5px;
-    border-radius: 4px;
-}
-
-
-.header-search-input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-    font-size: 1em;
-    outline: none;
-    opacity: 55%;
-}
-
-
-.header-search-input::placeholder {
-    color: #fff;
-}
-
-
-.header-search-button {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-left: none;
-    border-radius: 0 4px 4px 0;
-    background-color: rgba(0, 123, 255, 0.55);
-    color: #fff;
-    font-size: 1em;
-    cursor: pointer;
-    outline: none;
-}
-
-
-.header-right {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.header-user {
-    margin-right: 10px;
-    font-weight: bold;
-    color: #fff;
-    opacity: 75%;
-    text-decoration: none;
-}
-
-.header-link {
-    margin-right: 10px;
-    text-decoration: none;
-    color: #fff;
-    background: transparent;
-    opacity: 75%;
-}
-
-/*Body*/
-
-body {
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
     position: relative;
     z-index: 0;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.main-content {
+    flex: 1;
 }
 
 
@@ -142,34 +46,173 @@ body::before {
 }
 
 
+.main-header {
+    width: 100%;
+    height: 150px;
+    background: url('arara_header.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.header-left h1 {
+    text-decoration: none;
+    opacity: 85%;
+    color: #fff;
+}
+
+.header-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+
+.header-left .site-title {
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.5em;
+    color: #fff;
+    opacity: 0.75;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-search-form {
+    display: flex;
+    background: rgba(255, 255, 255, 0.55);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.header-search-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 1em;
+    outline: none;
+    opacity: 0.55;
+}
+
+.header-search-input::placeholder {
+    color: #fff;
+}
+
+.header-search-button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    background-color: rgba(0, 123, 255, 0.55);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-user {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 5px 10px;
+    color: #fff;
+    opacity: 0.75;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background: #f0f0f0;
+}
+
+.header-link {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+    background: transparent;
+    opacity: 0.75;
+}
+
+
 h1 {
     text-align: center;
     margin: 20px 0;
     font-size: 2.5em;
-    color: #333;
+    color: #fff;
 }
 
-/* Container grid */
+
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
+    gap: 20px;
     padding: 0 20px;
     margin: 20px 0;
-
 }
 
-/* Estilo do card */
 .card {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
     border: 1px solid #ccc;
     height: 300px;
-    border-bottom: 1px solid #ccc;
 }
 
-/* Imagem do card: ocupa todo o espaço */
 .card-image {
     width: 100%;
     height: 100%;
@@ -182,27 +225,22 @@ h1 {
     display: block;
 }
 
-/* Conteúdo do card */
 .card-content {
     position: absolute;
-
     bottom: 0;
     left: 0;
     right: 0;
     padding: 20px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
     color: rgba(255, 255, 255, 0.95);
-
 }
 
-/* Espaçamento interno para títulos, subtítulos e parágrafos */
 .card-content h2,
 .card-content h3,
 .card-content p {
     margin-bottom: 10px;
 }
 
-/* Botão "Ver detalhes": branco, sem transparência */
 .card-content .btn {
     display: inline-block;
     background: #fff;
@@ -216,17 +254,16 @@ h1 {
 
 .card-content .btn:hover {
     background: #f0f0f0;
-    opacity: 55%;
+    opacity: 0.55;
 }
 
-/* Paginação centralizada */
+/* Paginação */
 .pagination {
     text-align: center;
     margin: 20px 0;
 }
 
-/* Footer  geral*/
-
+/* Footer */
 footer {
     width: 100%;
     height: 150px;
@@ -237,7 +274,6 @@ footer {
     justify-content: center;
 }
 
-
 .footer-container {
     width: 100%;
     max-width: 1200px;
@@ -245,10 +281,7 @@ footer {
     justify-content: space-around;
     align-items: center;
     box-sizing: border-box;
-
 }
-
-
 
 .footer-left,
 .footer-center,
@@ -256,26 +289,20 @@ footer {
     flex: 1;
     display: flex;
     align-items: center;
-
 }
 
-/* Centro centralizado */
 .footer-center {
     justify-content: center;
     color: #fff;
 }
 
-
 .footer-right {
     justify-content: flex-end;
 }
 
-/*  logo do parceiro */
 .footer-logo {
     max-height: 100px;
-
 }
-
 
 .footer-icon {
     width: 70px;
@@ -283,7 +310,6 @@ footer {
     cursor: pointer;
 }
 
-/* Se desejar adicionar um hover nos ícones */
 .footer-icon:hover {
     opacity: 0.8;
 }

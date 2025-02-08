@@ -1,0 +1,55 @@
+.admin-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid darkgoldenrod;
+    border-radius: 8px;
+    background-color: #fff;
+    opacity: 55%;
+}
+
+
+.admin-form-container .field {
+    margin-bottom: 15px;
+}
+
+
+.admin-form-container .field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+.admin-form-container .field input[type="text"],
+.admin-form-container .field input[type="email"],
+.admin-form-container .field input[type="password"],
+.admin-form-container .field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+
+.admin-form-container .actions input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.admin-form-container .actions input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+.admin-form-container .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}

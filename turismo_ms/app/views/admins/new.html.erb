@@ -1,0 +1,33 @@
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'new_admin', media: 'all' %>
+<% end %>
+
+<div class="admin-form-container">
+  <h1>Criar Novo Admin</h1>
+
+  <%= form_with model: @admin, local: true do |form| %>
+    <div class="field">
+      <%= form.label :nome, "Nome" %>
+      <%= form.text_field :nome %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email, "Email" %>
+      <%= form.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, "Senha" %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation, "Confirmação de Senha" %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Criar Admin" %>
+    </div>
+  <% end %>
+</div>

@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :clientes, only: %i[new create edit update]
+  resources :admins, only: [:new, :create]
+
 end

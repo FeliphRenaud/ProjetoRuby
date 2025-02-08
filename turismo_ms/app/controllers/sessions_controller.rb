@@ -19,4 +19,10 @@ class SessionsController < ApplicationController
     session[:cliente_id] = nil # Limpa a sessão
     redirect_to root_path, notice: 'Logout realizado com sucesso!'
   end
+
+  def redirect_if_logged_in
+    return unless current_cliente
+
+    redirect_to root_path, notice: 'Você já está logado.'
+  end
 end

@@ -1,39 +1,47 @@
-<h1>Novo Post</h1>
-
-<%= form_with model: @post, local: true do |form| %>
-  <div>
-    <%= form.label :titulo, "Título" %><br>
-    <%= form.text_field :titulo %>
-  </div>
-
-  <div>
-    <%= form.label :subtitulo, "Subtítulo" %><br>
-    <%= form.text_field :subtitulo %>
-  </div>
-
-  <div>
-    <%= form.label :descricao, "Descrição" %><br>
-    <%= form.text_area :descricao %>
-  </div>
-
-  <div>
-    <%= form.label :imagem, "URL da Imagem" %><br>
-    <%= form.text_field :imagem, placeholder: "https://exemplo.com/imagem.jpg" %>
-  </div>
-
-  <div>
-    <%= form.label :link, "Link do Parceiro" %><br>
-    <%= form.text_field :link, placeholder: "https://exemplo.com" %>
-  </div>
-
-  <div>
-    <%= form.label :palavra_chave, "Palavra-chave" %><br>
-    <%= form.text_field :palavra_chave, placeholder: "Ex: natureza, gruta" %>
-  </div>
-
-  <div>
-    <%= form.submit "Criar Post", class: "btn btn-primary" %>
-  </div>
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'new_post', media: 'all' %>
 <% end %>
 
-<%= link_to "Voltar", posts_path %>
+
+<div class="form-container">
+  <h1>Novo Post</h1>
+
+  <%= form_with model: @post, local: true do |form| %>
+    <div class="form-field">
+      <%= form.label :titulo, "Título" %>
+      <%= form.text_field :titulo %>
+    </div>
+
+    <div class="form-field">
+      <%= form.label :subtitulo, "Subtítulo" %>
+      <%= form.text_field :subtitulo %>
+    </div>
+
+    <div class="form-field">
+      <%= form.label :descricao, "Descrição" %>
+      <%= form.text_area :descricao %>
+    </div>
+
+    <div class="form-field">
+      <%= form.label :imagem, "URL da Imagem" %>
+      <%= form.text_field :imagem, placeholder: "https://exemplo.com/imagem.jpg" %>
+    </div>
+
+    <div class="form-field">
+      <%= form.label :link, "Link do Parceiro" %>
+      <%= form.text_field :link, placeholder: "https://exemplo.com" %>
+    </div>
+
+    <div class="form-field">
+      <%= form.label :palavra_chave, "Palavra-chave" %>
+      <%= form.text_field :palavra_chave, placeholder: "Ex: natureza, gruta" %>
+    </div>
+
+    <div class="form-field">
+      <%= form.submit "Criar Post", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= link_to "Voltar", posts_path, class: "back-link" %>
+</div>
+

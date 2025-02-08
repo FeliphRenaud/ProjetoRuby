@@ -2,7 +2,6 @@
   <%= stylesheet_link_tag 'show_post', media: 'all' %>
 <% end %>
 
-
 <div class="post-show">
   <div class="post-card image-card">
     <% if @post.imagem.present? %>
@@ -16,6 +15,12 @@
     <p>
       Site do parceiro: <%= link_to "Clique aqui", @post.link, target: "_blank" %>
     </p>
+    <% if current_cliente && current_cliente.admin? %>
+      <div class="admin-actions">
+        <%= link_to "Editar", edit_post_path(@post), class: "btn btn-warning" %>
+        <%= link_to "Excluir", post_path(@post), method: :delete, data: { confirm: "Tem certeza que deseja excluir este post?" }, class: "btn btn-danger" %>
+      </div>
+    <% end %>
     <%= link_to "Voltar para a Home", root_path, class: "btn btn-info" %>
   </div>
 </div>
