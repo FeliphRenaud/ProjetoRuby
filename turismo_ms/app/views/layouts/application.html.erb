@@ -40,6 +40,7 @@
                   <% if current_cliente.admin? %>
                     <%= link_to "Criar Post", new_post_path, class: "dropdown-item" %>
                     <%= link_to "Criar Novo Admin", new_admin_path, class: "dropdown-item" %>
+                    <%= link_to "Excluir Usuário", client_management_path, class: "dropdown-item" %>
                   <% end %>
                 </div>
               </div>

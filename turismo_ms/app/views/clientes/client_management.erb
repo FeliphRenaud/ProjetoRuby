@@ -1,0 +1,60 @@
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'client_management', media: 'all' %>
+<% end %>
+
+<div class="admin-clients-box">
+  <h1>Gerenciar Clientes</h1>
+
+  <h2>Administradores</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @admins.each do |cliente| %>
+        <tr>
+          <td><%= cliente.nome %></td>
+          <td><%= cliente.email %></td>
+          <td>Admin</td>
+          <td>
+            <%= link_to "Excluir", cliente_path(cliente), method: :delete, data: { confirm: "Tem certeza que deseja excluir este cliente?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2>Clientes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @non_admins.each do |cliente| %>
+        <tr>
+          <td><%= cliente.nome %></td>
+          <td><%= cliente.email %></td>
+          <td>Cliente</td>
+          <td>
+            <%= link_to "Excluir", cliente_path(cliente), method: :delete, data: { confirm: "Tem certeza que deseja excluir este cliente?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- Link centralizado para retornar à Home -->
+  <div class="return-home">
+    <%= link_to "Voltar para Home", root_path, class: "btn-home" %>
+  </div>
+</div>

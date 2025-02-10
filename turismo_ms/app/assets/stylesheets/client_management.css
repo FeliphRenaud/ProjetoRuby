@@ -1,0 +1,86 @@
+/* Container principal da área de gerenciamento */
+.admin-clients-box {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+.admin-clients-box h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Subtítulos para cada seção */
+.admin-clients-box h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #444;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+/* Estilo das tabelas */
+.admin-clients-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+/* Células da tabela */
+.admin-clients-box th,
+.admin-clients-box td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Cabeçalho da tabela */
+.admin-clients-box th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Efeito hover nas linhas da tabela */
+.admin-clients-box tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Links de ação */
+.admin-clients-box a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.2s;
+}
+
+.admin-clients-box a:hover {
+    color: #0056b3;
+}
+
+/* Estilização para o link de retorno à Home */
+.return-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-home .btn-home {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.return-home .btn-home:hover {
+    background-color: #0056b3;
+}
