@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-pin "application", preload: true
-pin "@rails/ujs", to: "rails-ujs.js"
+pin 'application', preload: true
+pin '@rails/ujs', to: 'rails-ujs.js'
 
-require_relative "../config/application"
-require "importmap/commands"
+require_relative '../config/application'
+require 'importmap/commands'

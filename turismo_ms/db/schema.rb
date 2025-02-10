@@ -10,27 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_03_181921) do
+ActiveRecord::Schema[7.2].define(version: 20_250_203_181_921) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "clientes", force: :cascade do |t|
-    t.string "nome"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "admin", default: false, null: false
+  create_table 'clientes', force: :cascade do |t|
+    t.string 'nome'
+    t.string 'email'
+    t.string 'password_digest'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.boolean 'admin', default: false, null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "imagem"
-    t.string "titulo"
-    t.string "subtitulo"
-    t.text "descricao"
-    t.string "link"
-    t.string "palavra_chave"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'posts', force: :cascade do |t|
+    t.string 'imagem'
+    t.string 'titulo'
+    t.string 'subtitulo'
+    t.text 'descricao'
+    t.string 'link'
+    t.string 'palavra_chave'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 end

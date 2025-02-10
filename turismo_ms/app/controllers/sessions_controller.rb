@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   layout 'authentication'
   skip_before_action :verify_authenticity_token
+  before_action :redirect_if_logged_in, only: %i[new create]
+
   def new
   end
 
@@ -19,6 +21,8 @@ class SessionsController < ApplicationController
     session[:cliente_id] = nil # Limpa a sessão
     redirect_to root_path, notice: 'Logout realizado com sucesso!'
   end
+
+  private
 
   def redirect_if_logged_in
     return unless current_cliente

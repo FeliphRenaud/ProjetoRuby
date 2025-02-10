@@ -58,7 +58,7 @@
     }
 }
 
-/* Conteúdo do cadastre-se que aparece após a animação */
+
 .registration-content {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
@@ -72,7 +72,7 @@
     }
 }
 
-/* Estilos  do form */
+
 .form-group {
     margin-bottom: 15px;
 }
