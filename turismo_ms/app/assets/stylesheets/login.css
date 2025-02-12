@@ -16,6 +16,11 @@
 
 }
 
+.login-content h1 {
+    color: #007bff;
+    opacity: 55%;
+}
+
 /* login */
 .login-box {
     position: relative;
@@ -27,6 +32,8 @@
     overflow: hidden;
 
 }
+
+
 
 /* efeito na borda da caixa */
 .login-box::before {

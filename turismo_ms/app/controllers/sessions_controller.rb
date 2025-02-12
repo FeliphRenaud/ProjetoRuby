@@ -18,8 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:cliente_id] = nil # Limpa a sessão
-    redirect_to root_path, notice: 'Logout realizado com sucesso!'
+    session[:cliente_id] = nil
+    redirect_to login_path, notice: 'Você foi desconectado com sucesso.'
   end
 
   private

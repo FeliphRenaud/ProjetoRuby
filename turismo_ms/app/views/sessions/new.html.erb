@@ -4,20 +4,18 @@
 
 <div class="login-container">
   <div class="login-box">
-
-  <!--
-  <% if flash[:alert] %>
-    <div class="alert alert-danger">
-      <%= flash[:alert] %>
-    </div>
-  <% elsif flash[:notice] %>
-    <div class="alert alert-success">
-      <%= flash[:notice] %>
-    </div>
+    <% if flash[:notice] %>
+      <div class="alert alert-success" id="success-message">
+        <%= flash[:notice] %>
+      </div>
     <% end %>
-  -->
 
- 
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
     <div class="login-content">
       <h1>Login</h1>
 
@@ -39,8 +37,19 @@
 
       <p class="register-link">
         Ainda não tem conta? <%= link_to "Cadastre-se", new_cliente_path %>
-
       </p>
     </div>
   </div>
 </div>
+
+<script>
+  // Remove a mensagem de sucesso após 2.5 segundos
+  document.addEventListener("DOMContentLoaded", function() {
+    var successMessage = document.getElementById("success-message");
+    if (successMessage) {
+      setTimeout(function() {
+        successMessage.style.display = 'none';
+      }, 2500); //  = 2.5 segundos
+    }
+  });
+</script>

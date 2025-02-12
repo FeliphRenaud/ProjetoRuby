@@ -2,43 +2,57 @@
   <%= stylesheet_link_tag 'registration', media: 'all' %>
 <% end %>
 
-
 <div class="registration-container">
   <div class="registration-box">
     <div class="registration-content">
       <h1>Cadastro de Usuário</h1>
 
-    <!--
-      <% if flash[:alert] %>
-        <div class="alert alert-danger">
-          <%= flash[:alert] %>
-        </div>
-      <% elsif flash[:notice] %>
-        <div class="alert alert-success">
-          <%= flash[:notice] %>
+
+      <% if @cliente.errors.any? %>
+        <div class="alert alert-danger" id="error-message">
+          <ul>
+            <% @cliente.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
         </div>
       <% end %>
-    -->
 
       <%= form_with model: @cliente, local: true do |form| %>
         <div class="form-group">
           <%= form.label :nome, "Nome:" %><br>
           <%= form.text_field :nome, class: "form-control", required: true %>
+
+          <% if @cliente.errors[:nome].any? %>
+            <small class="text-danger"><%= @cliente.errors[:nome].first %></small>
+          <% end %>
         </div>
 
         <div class="form-group">
           <%= form.label :email, "Email:" %><br>
           <%= form.email_field :email, class: "form-control", required: true %>
+
+          <% if @cliente.errors[:email].any? %>
+            <small class="text-danger"><%= @cliente.errors[:email].first %></small>
+          <% end %>
         </div>
 
         <div class="form-group">
           <%= form.label :password, "Senha:" %><br>
           <%= form.password_field :password, class: "form-control", required: true %>
+
+          <% if @cliente.errors[:password].any? %>
+            <small class="text-danger"><%= @cliente.errors[:password].first %></small>
+          <% end %>
         </div>
 
         <div class="form-group">
           <%= form.label :password_confirmation, "Confirme sua senha:" %><br>
           <%= form.password_field :password_confirmation, class: "form-control", required: true %>
+
+          <% if @cliente.errors[:password_confirmation].any? %>
+            <small class="text-danger"><%= @cliente.errors[:password_confirmation].first %></small>
+          <% end %>
         </div>
 
         <div class="form-group">
@@ -52,3 +66,15 @@
     </div>
   </div>
 </div>
+
+<script>
+  // Remove a mensagem de erro após 5,5 segundos
+  document.addEventListener("DOMContentLoaded", function() {
+    var errorMessage = document.getElementById("error-message");
+    if (errorMessage) {
+      setTimeout(function() {
+        errorMessage.style.display = 'none';
+      }, 5500); //  = 5,5 segundos
+    }
+  });
+</script>

@@ -10,7 +10,7 @@ class ClientesController < ApplicationController
   def create
     @cliente = Cliente.new(cliente_params)
     if @cliente.save
-      redirect_to root_path, notice: 'Cadastro realizado com sucesso!'
+      redirect_to login_path, notice: 'Cliente cadastrado com sucesso, pode efetuar o seu login.'
     else
       flash.now[:alert] = @cliente.errors.full_messages.to_sentence
       render :new

@@ -5,7 +5,7 @@
 <div class="admin-form-container">
   <h1>Criar Novo Admin</h1>
 
-  <%= form_with model: @admin, local: true do |form| %>
+  <%= form_with model: @admin, url: admins_path, local: true do |form| %>
     <div class="field">
       <%= form.label :nome, "Nome" %>
       <%= form.text_field :nome %>
